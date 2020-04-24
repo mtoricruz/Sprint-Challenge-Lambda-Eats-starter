@@ -12,7 +12,7 @@ function PizzaForm(props) {
   } = props;
 
   return (
-    <form className="pizza-form-container">
+    <form id="order" className="pizza-form-container">
       <h2>Complete Form and Place Order</h2>
       {/* Step 10 SHOW ERRORS */}
       <div className="errors">{errors.name}</div>
@@ -83,7 +83,7 @@ function PizzaForm(props) {
         />
       </label>
       {/* ////////// DISABLED feature with Submit Button////////// */}
-      <button onClick={onSubmit} disabled={disabled}>
+      <button name="order" onClick={onSubmit} disabled={disabled}>
         Place Order
       </button>
     </form>

@@ -17,13 +17,16 @@ describe('Test for MVP', () => {
             .should('have.value', name)
 
         cy.get('input[name="toppings"]')
-            .check().should('be.checked')    
+            .check().should('be.checked')
+            
+        cy.get('select')
+            .select('medium').should('have.value', 'medium')
 
         cy.get('input[name="instructions"]')
             .type('make with love please')
             .should('have.value', 'make with love please')
 
-        cy.contains('Place Order')
+        cy.get('button[name="order"]')
             .click()    
     })
 })
