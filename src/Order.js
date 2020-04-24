@@ -5,9 +5,10 @@ function Order({ details }) {
     return <h3>Working fetching your order&apos;s details...</h3>
   }
   return (
-    <div className='oder container'>
+    <div className='order container'>
       <h2>{details.name}'s Order</h2>
       <p>Size: {details.size ? 'Small' : 'Medium'}</p>
+
       {
         !!details.toppings && !!details.toppings.length &&
         <div>

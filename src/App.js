@@ -20,7 +20,7 @@ const initialFormValues = {
     sausage: false,
     pepperoni: false,
     peppers: false,
-    apples: false
+    apples: false,
   },
   //text for instructions
   instructions: ""
@@ -75,7 +75,7 @@ function App() {
       name: formValues.name,
       size: formValues.size === 'medium' ? false : true,
       toppings: Object.keys(formValues.toppings)
-      .filter(topping => formValues.toppings[topping] === true),
+        .filter(topping => formValues.toppings[topping] === true),
       instructions: formValues.instructions
     };
     // const newOrder = {
@@ -119,13 +119,13 @@ function App() {
   };
 
   const onCheckboxChange = evt => {
-    const { name } = evt.target;
-    const isChecked = evt.target.checked;
+    const { name } = evt.target
+    const isChecked = evt.target.checked
 
     setFormValues({
       ...formValues,
       toppings: {
-        ...setFormValues.toppings,
+        ...formValues.toppings,
         [name]: isChecked,
       }
     })
@@ -143,7 +143,7 @@ function App() {
         <h1>Home Page</h1>
       </Route>
 
-      <Route path="/pizza">
+      <Route exact path="/pizza">
         <Link to="/">Go Home</Link>
         <h2>Order Form</h2>
         <PizzaForm
@@ -154,15 +154,16 @@ function App() {
           disabled={formDisabled}
           errors={formErrors}
         />
-      </Route>
-
-      {
+        {
         orders.map(order => {
           return (
             <Order key={order.id} details={order} />
           )
         })
       }
+      </Route>
+
+      
     </div>
   );
 }

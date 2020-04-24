@@ -17,8 +17,7 @@ function PizzaForm(props) {
       {/* Step 10 SHOW ERRORS */}
       <div className="errors">{errors.name}</div>
       {/* ////////// name TEXT INPUT ////////// */}
-      <label>
-        Name:&nbsp;
+      <label> Name:&nbsp;
         <input
           value={values.name}
           onChange={onInputChange}
@@ -29,49 +28,36 @@ function PizzaForm(props) {
       {/* ////////// DROPDOWN ////////// */}
       <label>
         Pizza Size:&nbsp;
-        <select value={values.size} onChange={onInputChange} name="size">
+        <select 
+            value={values.size} 
+            onChange={onInputChange} 
+            name="size"
+            >
           <option defaultValue="">Please choose</option>
           <option value="small">Small</option>
           <option value="medium">Medium</option>
-        </select>
-      </label>
+        </select></label>
       {/* ////////// CHECKBOXES ////////// */}
-      <label>
-        <input
+      <label><input
           checked={values.toppings.sausage}
           onChange={onCheckboxChange}
-          name="Sausage"
-          type="checkbox"
-        />
-        Sausage
-      </label>
-      <label>
-        <input
+          name="sausage"
+          type="checkbox" />Sausage</label>
+      <label><input
           checked={values.toppings.pepperoni}
           onChange={onCheckboxChange}
-          name="Pepperoni"
-          type="checkbox"
-        />
-        Pepperoni
-      </label>
-      <label>
-        <input
+          name="pepperoni"
+          type="checkbox" />Pepperoni</label>
+      <label><input
           checked={values.toppings.peppers}
           onChange={onCheckboxChange}
-          name="Peppers"
-          type="checkbox"
-        />
-        Peppers
-      </label>
-      <label>
-        <input
+          name="peppers"
+          type="checkbox" />Peppers</label>
+      <label><input
           checked={values.toppings.apples}
           onChange={onCheckboxChange}
-          name="Apples"
-          type="checkbox"
-        />
-        Apples
-      </label>
+          name="apples"
+          type="checkbox" />Apples&nbsp;</label>
       {/* ////////// special instructions TEXT INPUT ////////// */}
       <label>
         Special Instructions:&nbsp;
