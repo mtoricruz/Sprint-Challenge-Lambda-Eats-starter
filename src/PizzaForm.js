@@ -40,7 +40,7 @@ function PizzaForm(props) {
         <input
           checked={values.toppings.sausage}
           onChange={onCheckboxChange}
-          name="toppings"
+          name="Sausage"
           type="checkbox"
         />
         Sausage
@@ -49,7 +49,7 @@ function PizzaForm(props) {
         <input
           checked={values.toppings.pepperoni}
           onChange={onCheckboxChange}
-          name="toppings"
+          name="Pepperoni"
           type="checkbox"
         />
         Pepperoni
@@ -58,7 +58,7 @@ function PizzaForm(props) {
         <input
           checked={values.toppings.peppers}
           onChange={onCheckboxChange}
-          name="toppings"
+          name="Peppers"
           type="checkbox"
         />
         Peppers
@@ -67,7 +67,7 @@ function PizzaForm(props) {
         <input
           checked={values.toppings.apples}
           onChange={onCheckboxChange}
-          name="toppings"
+          name="Apples"
           type="checkbox"
         />
         Apples

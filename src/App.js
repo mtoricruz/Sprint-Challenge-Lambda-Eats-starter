@@ -26,16 +26,23 @@ const initialFormValues = {
   instructions: ""
 };
 
+// the shape of the validation errors object
 const initialFormErrors = {
   name: "",
   size: "",
   instructions: ""
 };
 
+// SCHEMA for validation
 const formSchema = yup.object().shape({
-  name: yup.string().min(2, "name must have at least 2 characters!"),
-  size: yup.string().matches(/(small|medium)/, "either small or medium size"),
-  instructions: yup.string()
+  name: yup
+    .string()
+    .min(2, "name must have at least 2 characters!"),
+  size: yup
+    .string()
+    .matches(/(small|medium)/, "either small or medium size"),
+  instructions: yup
+    .string()
 });
 
 function App() {
@@ -55,8 +62,9 @@ function App() {
   };
 
   useEffect(() => {
-    formSchema.isValid(formValues).then(valid => {
-      setFormDisabled(!valid);
+    formSchema.isValid(formValues)
+      .then(valid => {
+        setFormDisabled(!valid);
     });
   }, [formValues]);
 
@@ -70,6 +78,16 @@ function App() {
       .filter(topping => formValues.toppings[topping] === true),
       instructions: formValues.instructions
     };
+    // const newOrder = {
+    //   name: formValues.name,
+    //   size: formValues.size === 'medium' ? false : true,
+    //   toppings: Object.keys(formValues.toppings)
+    //   .filter(topping => formValues.toppings[topping])
+    //   .forEach(topping => {
+    //     console.log(topping, "is selected.");
+    //   }),
+    //   instructions: formValues.instructions
+    // };
 
     postOrder(newOrder);
     setFormValues(initialFormValues);
@@ -102,16 +120,16 @@ function App() {
 
   const onCheckboxChange = evt => {
     const { name } = evt.target;
-    const isChecked = evt.target.isChecked;
+    const isChecked = evt.target.checked;
 
     setFormValues({
       ...formValues,
       toppings: {
         ...setFormValues.toppings,
-        [name]: isChecked
+        [name]: isChecked,
       }
-    });
-  };
+    })
+  }
 
   return (
     <div className="container">

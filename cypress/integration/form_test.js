@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid'
 
 const name = uuid().slice(0, 5)
 const url = 'http://localhost:3000/pizza'
-const instructions = uuid().slice(0, 9)
+const instructions = 'make with love please'
 
 describe('Test for MVP', () => {
     it('Can navigate to the site', () => {
@@ -16,15 +16,21 @@ describe('Test for MVP', () => {
             .type(name)
             .should('have.value', name)
 
-        cy.get('input[name="toppings"]')
+        cy.get('input[name="Sausage"]')
+            .check().should('be.checked')
+
+        cy.get('input[name="Pepperoni"]')
+            .check().should('be.checked')
+
+        cy.get('input[name="Peppers"]')
             .check().should('be.checked')
             
         cy.get('select')
             .select('medium').should('have.value', 'medium')
 
         cy.get('input[name="instructions"]')
-            .type('make with love please')
-            .should('have.value', 'make with love please')
+            .type(instructions)
+            .should('have.value', instructions)
 
         cy.get('button[name="order"]')
             .click()    
